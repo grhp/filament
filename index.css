@@ -1,0 +1,15 @@
+a {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    line-height: 200%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    color: #111;
+    margin: 20px;
+    padding: 10px;
+}
+
+a:hover {
+    background-color: #e7e7e7;
+}
