@@ -45,8 +45,8 @@ function maybe_launch() {
     }
 }
 
-// Update a tiny queue of mouse events. We don't send them to WASM immediately because ImGui detects
-// click events by looking for three consecutive frames of down-up-down.
+// Update a tiny queue of pointer events. We don't send them to WASM immediately because ImGui
+// detects click events by looking for three consecutive frames of down-up-down.
 function canvas_mouse(evt) {
     let args = [evt.clientX, evt.clientY, evt.deltaX || 0, evt.deltaY || 0, evt.buttons];
     if (evt.buttons != previous_mouse_buttons || queued_mouse_events.length == 0) {
