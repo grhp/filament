@@ -35,11 +35,12 @@ function maybe_launch() {
     if (assets_ready && context_ready) {
         _launch();
         canvas_resize();
-        window.addEventListener("resize", canvas_resize);
-        window.addEventListener("wheel", canvas_mouse);
-        window.addEventListener("pointermove", canvas_mouse);
-        window.addEventListener("pointerdown", canvas_mouse);
-        window.addEventListener("pointerup", canvas_mouse);
+        let canvas = document.getElementById('filament-canvas');
+        canvas.addEventListener("resize", canvas_resize);
+        canvas.addEventListener("wheel", canvas_mouse);
+        canvas.addEventListener("pointermove", canvas_mouse);
+        canvas.addEventListener("pointerdown", canvas_mouse);
+        canvas.addEventListener("pointerup", canvas_mouse);
         canvas_render();
     }
 }
