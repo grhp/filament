@@ -37,9 +37,9 @@ function maybe_launch() {
         canvas_resize();
         window.addEventListener("resize", canvas_resize);
         window.addEventListener("wheel", canvas_mouse);
-        window.addEventListener("mousemove", canvas_mouse);
-        window.addEventListener("mousedown", canvas_mouse);
-        window.addEventListener("mouseup", canvas_mouse);
+        window.addEventListener("pointermove", canvas_mouse);
+        window.addEventListener("pointerdown", canvas_mouse);
+        window.addEventListener("pointerup", canvas_mouse);
         canvas_render();
     }
 }
