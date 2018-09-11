@@ -76,8 +76,9 @@ function canvas_resize() {
     let pr = window.devicePixelRatio;
     let w = window.innerWidth;
     let h = window.innerHeight;
-    canvas.width = (w * pr) | 0;
-    canvas.height = (h * pr) | 0;
+    canvas.width = w * pr;
+    canvas.height = h * pr;
+    document.getElementById('messages').innerText = canvas.width + 'x' + canvas.height + '@' + pr;
     _resize((w * pr) | 0, (h * pr) | 0, pr);
 }
 
