@@ -34,8 +34,8 @@ Module.postRun = function() {
 function maybe_launch() {
     if (assets_ready && context_ready) {
         _launch();
-        canvas_resize();
-        window.addEventListener("resize", canvas_resize);
+        window_resize();
+        window.addEventListener("resize", window_resize);
         let canvas = document.getElementById('filament-canvas');
         canvas.addEventListener("wheel", canvas_mouse);
         canvas.addEventListener("pointermove", canvas_mouse);
@@ -71,16 +71,14 @@ function canvas_render() {
     window.requestAnimationFrame(canvas_render);
 }
 
-function canvas_resize() {
+function window_resize() {
     let canvas = document.getElementById('filament-canvas');
     let pr = window.devicePixelRatio;
-    let w = canvas.clientWidth;
-    let h = canvas.clientHeight;
+    let w = window.innerWidth;
+    let h = window.innerHeight;
     canvas.width = w * pr;
     canvas.height = h * pr;
-    document.getElementById('messages').innerText = 'v4 ' +
-        w + 'x' + h + ',' + (w * pr) + 'x' + (h * pr) + '@' + pr;
-    _resize((w * pr) | 0, (h * pr) | 0, pr);
+    _resize(w, h, pr);
 }
 
 function load_rawfile(url) {
