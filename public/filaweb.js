@@ -74,11 +74,11 @@ function canvas_render() {
 function canvas_resize() {
     let canvas = document.getElementById('filament-canvas');
     let pr = window.devicePixelRatio;
-    let w = window.innerWidth;
-    let h = window.innerHeight;
+    let w = window.outerWidth;
+    let h = window.outerHeight;
     canvas.width = w * pr;
     canvas.height = h * pr;
-    document.getElementById('messages').innerText =
+    document.getElementById('messages').innerText = 'v2 ' +
         w + 'x' + h + ',' + (w * pr) + 'x' + (h * pr) + '@' + pr;
     _resize((w * pr) | 0, (h * pr) | 0, pr);
 }
