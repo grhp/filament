@@ -34,8 +34,8 @@ Module.postRun = function() {
 function maybe_launch() {
     if (assets_ready && context_ready) {
         _launch();
-        window_resize();
-        window.addEventListener("resize", window_resize);
+        canvas_resize();
+        window.addEventListener("resize", canvas_resize);
         let canvas = document.getElementById('filament-canvas');
         canvas.addEventListener("wheel", canvas_mouse);
         canvas.addEventListener("pointermove", canvas_mouse);
@@ -71,14 +71,14 @@ function canvas_render() {
     window.requestAnimationFrame(canvas_render);
 }
 
-function window_resize() {
+function canvas_resize() {
     let canvas = document.getElementById('filament-canvas');
     let pr = window.devicePixelRatio;
     let w = window.innerWidth;
     let h = window.innerHeight;
-    canvas.width = w * pr;
-    canvas.height = h * pr;
-    _resize(w, h, pr);
+    canvas.width = (w * pr) | 0;
+    canvas.height = (h * pr) | 0;
+    _resize((w * pr) | 0, (h * pr) | 0, pr);
 }
 
 function load_rawfile(url) {
