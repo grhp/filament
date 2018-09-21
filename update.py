@@ -31,11 +31,11 @@ def process_demo():
         html = open(path).read()
         html = html.replace('.ktx', '_ktx.bmp')
         open(path, 'w').write(html)
-    paths = glob.glob('public/*.ktx')
+    paths = glob.glob('public/**/*.ktx', recursive=True)
     for path in paths:
         print(path)
         basename = path.split('.ktx')[0]
-        os.rename(path, f'public/{basename}_ktx.bmp')
+        os.rename(path, f'{basename}_ktx.bmp')
 
 def fetch_docs():
     print('Fetching docs...')
@@ -45,6 +45,6 @@ def fetch_docs():
     html = html.replace('../../docs/', '')
     open('Vulkan.md.html', 'w').write(html)
 
-# fetch_demo()
+fetch_demo()
 process_demo()
-# fetch_docs()
+fetch_docs()
